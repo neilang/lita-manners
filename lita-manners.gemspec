@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-manners"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["neilang"]
   spec.email         = ["neilang@gmail.com"]
   spec.description   = "Makes Lita politely respond to simple hello/goodbye/thank you commands and mentions"
