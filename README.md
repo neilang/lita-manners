@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/neilang/lita-manners.png?branch=master)](https://travis-ci.org/neilang/lita-manners)
 [![Coverage Status](https://coveralls.io/repos/neilang/lita-manners/badge.png)](https://coveralls.io/r/neilang/lita-manners)
 
-TODO: Add a description of the plugin.
+Makes Lita politely respond to simple hello/goodbye/thank you commands and mentions.
 
 ## Installation
 
@@ -15,8 +15,44 @@ gem "lita-manners"
 
 ## Configuration
 
-TODO: Describe any configuration attributes the plugin exposes.
+There is no configuration.
 
 ## Usage
 
-TODO: Describe the plugin's features and how to use them.
+Give Lita basic manners to answer questions.
+
+Saying hello...
+
+```
+# Mentions
+You: Hello Lita
+Lita: Hello You
+
+# Commands
+You: @lita hi!
+Lita: hi!
+```
+
+Saying goodbye...
+
+```
+# Mentions
+You: Goodbye Lita
+Lita: Goodbye You
+
+# Commands
+You: @lita bye!
+Lita: bye!
+```
+
+Saying you're welcome...
+
+```
+# Mentions
+You: Thank you Lita
+Lita: You're welcome You
+
+# Commands
+You: @lita thanks
+Lita: You're welcome You
+```
