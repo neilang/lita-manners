@@ -1,8 +1,8 @@
 module Lita
   module Handlers
     class Manners < Handler
-      route(/^(hi|hello|hey|howdy|bye|goodbye)!*$/i, :echo_command, command: true)
-      route(/^(hi|hello|hey|howdy|bye|goodbye)\s+@?(.+)$/i, :echo_message, command: false)
+      route(/^(hi|hello|hey|howdy|bye|goodbye|morning|good morning|good afternoon|good evening|good night)!*$/i, :echo_command, command: true)
+      route(/^(hi|hello|hey|howdy|bye|goodbye|morning|good morning|good afternoon|good evening|good night)\s+@?(.+)$/i, :echo_message, command: false)
       route(/^(thanks|thank\s?you|cheers)!*$/i, :thank_you_command, command: true)
       route(/^(thanks|thank\s?you|cheers)\s+@?(.+)$/i, :thank_you_message, command: false)
       route(/^(i'm |i am )?sorry!*$/i, :sorry_command, command: true)

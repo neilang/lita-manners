@@ -10,6 +10,12 @@ describe Lita::Handlers::Manners, lita_handler: true do
     it { is_expected.to route_command('howdy').to(:echo_command) }
     it { is_expected.to route_command('goodbye').to(:echo_command) }
     it { is_expected.to route_command('bye').to(:echo_command) }
+    it { is_expected.to route_command('morning').to(:echo_command) }
+    it { is_expected.to route_command('good morning').to(:echo_command) }
+    it { is_expected.to route_command('good night').to(:echo_command) }
+    it { is_expected.to route_command('good afternoon').to(:echo_command) }
+    it { is_expected.to route_command('good evening').to(:echo_command) }
+    it { is_expected.to route_command('good night').to(:echo_command) }
 
     it { is_expected.to route_command('hello!').to(:echo_command) }
     it { is_expected.to route_command('hi!').to(:echo_command) }
@@ -17,6 +23,12 @@ describe Lita::Handlers::Manners, lita_handler: true do
     it { is_expected.to route_command('howdy!').to(:echo_command) }
     it { is_expected.to route_command('goodbye!').to(:echo_command) }
     it { is_expected.to route_command('bye!').to(:echo_command) }
+    it { is_expected.to route_command('morning!').to(:echo_command) }
+    it { is_expected.to route_command('good morning!').to(:echo_command) }
+    it { is_expected.to route_command('good night!').to(:echo_command) }
+    it { is_expected.to route_command('good afternoon!').to(:echo_command) }
+    it { is_expected.to route_command('good evening!').to(:echo_command) }
+    it { is_expected.to route_command('good night!').to(:echo_command) }
 
     it 'replies with the user name' do
       send_command('Hello', as: user)
@@ -36,6 +48,12 @@ describe Lita::Handlers::Manners, lita_handler: true do
     it { is_expected.to route('howdy lita').to(:echo_message) }
     it { is_expected.to route('goodbye lita').to(:echo_message) }
     it { is_expected.to route('bye lita').to(:echo_message) }
+    it { is_expected.to route('morning lita').to(:echo_message) }
+    it { is_expected.to route('good morning lita').to(:echo_message) }
+    it { is_expected.to route('good night lita').to(:echo_message) }
+    it { is_expected.to route('good afternoon lita').to(:echo_message) }
+    it { is_expected.to route('good evening lita').to(:echo_message) }
+    it { is_expected.to route('good night lita').to(:echo_message) }
 
     it { is_expected.to route('hello @lita').to(:echo_message) }
     it { is_expected.to route('hi @lita').to(:echo_message) }
@@ -43,6 +61,12 @@ describe Lita::Handlers::Manners, lita_handler: true do
     it { is_expected.to route('howdy @lita').to(:echo_message) }
     it { is_expected.to route('goodbye @lita').to(:echo_message) }
     it { is_expected.to route('bye @lita').to(:echo_message) }
+    it { is_expected.to route('morning @lita').to(:echo_message) }
+    it { is_expected.to route('good morning @lita').to(:echo_message) }
+    it { is_expected.to route('good night @lita').to(:echo_message) }
+    it { is_expected.to route('good afternoon @lita').to(:echo_message) }
+    it { is_expected.to route('good evening @lita').to(:echo_message) }
+    it { is_expected.to route('good night @lita').to(:echo_message) }
 
     it 'replies to Hello lita' do
       send_message('Hello lita', as: user)
