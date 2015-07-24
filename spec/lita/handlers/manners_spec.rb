@@ -113,4 +113,49 @@ describe Lita::Handlers::Manners, lita_handler: true do
       expect(replies.last).to eq nil
     end
   end
+
+  describe "sorry command" do
+    it { is_expected.to route_command('sorry').to(:sorry_command) }
+    it { is_expected.to route_command('I am sorry').to(:sorry_command) }
+    it { is_expected.to route_command('I\'m sorry').to(:sorry_command) }
+
+    it { is_expected.to route_command('sorry!').to(:sorry_command) }
+    it { is_expected.to route_command('I am sorry!').to(:sorry_command) }
+    it { is_expected.to route_command('I\'m sorry!').to(:sorry_command) }
+
+    it 'replies with the user name' do
+      send_command('sorry', as: user)
+      expect(replies.last).to eq 'Apology accepted You'
+    end
+  end
+
+  describe "sorry message" do
+    it { is_expected.to route('sorry lita').to(:sorry_message) }
+    it { is_expected.to route('I am sorry lita').to(:sorry_message) }
+    it { is_expected.to route('I\'m sorry lita').to(:sorry_message) }
+
+    it { is_expected.to route('sorry @lita').to(:sorry_message) }
+    it { is_expected.to route('I am sorry @lita').to(:sorry_message) }
+    it { is_expected.to route('I\'m sorry @lita').to(:sorry_message) }
+
+    it 'replies to sorry lita' do
+      send_message('sorry lita', as: user)
+      expect(replies.last).to eq 'Apology accepted You'
+    end
+
+    it 'replies to sorry @lita' do
+      send_message('sorry @lita', as: user)
+      expect(replies.last).to eq 'Apology accepted You'
+    end
+
+    it 'replies to sorry LITA' do
+      send_message('sorry LITA', as: user)
+      expect(replies.last).to eq 'Apology accepted You'
+    end
+
+    it 'replies only to mentions' do
+      send_message('sorry @someone', as: user)
+      expect(replies.last).to eq nil
+    end
+  end
 end

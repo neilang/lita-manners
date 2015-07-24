@@ -5,6 +5,8 @@ module Lita
       route(/^(hi|hello|hey|howdy|bye|goodbye)\s+@?(.+)$/i, :echo_message, command: false)
       route(/^(thanks|thank\s?you|cheers)!*$/i, :thank_you_command, command: true)
       route(/^(thanks|thank\s?you|cheers)\s+@?(.+)$/i, :thank_you_message, command: false)
+      route(/^(i'm |i am )?sorry!*$/i, :sorry_command, command: true)
+      route(/^(i'm |i am )?sorry\s+@?(.+)$/i, :sorry_message, command: false)
 
       def echo_command(response, message = nil)
         echo = message || response.matches[0][0]
@@ -22,6 +24,14 @@ module Lita
 
       def thank_you_message(response)
         thank_you_command(response) if addressed_to_robot?(response)
+      end
+
+      def sorry_command(response)
+        response.reply "Apology accepted #{response.user.name}"
+      end
+
+      def sorry_message(response)
+         sorry_command(response) if addressed_to_robot?(response)
       end
 
       private
